@@ -1,16 +1,26 @@
-### GET request to example server
-GET http://localhost:8080
+### GET ALL
+GET http://localhost:8080/api/v1/software-engineers
 
-###
+### GET by ID
 GET http://localhost:8080/api/v1/software-engineers/1
 
-###
+### POST
 POST http://localhost:8080/api/v1/software-engineers
 Content-Type: application/json
 
 {
-  "name": "Jamie",
-  "techStack": "java, spring boot, spring"
+  "name": "James",
+  "techStack": "typescript, javascript"
 }
 
-###
+### DELETE by ID
+DELETE http://localhost:8080/api/v1/software-engineers/delete/2
+
+### UPDATE by ID
+PUT http://localhost:8080/api/v1/software-engineers/update/1
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "techStack": "Java, Spring Boot, PostgreSQL"
+}

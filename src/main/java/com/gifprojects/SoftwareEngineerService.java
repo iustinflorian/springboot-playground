@@ -46,4 +46,25 @@ public class SoftwareEngineerService {
 
         softwareEngineerRepository.save(entity);
     }
+
+    public void deleteSoftwareEngineerById(Integer id) {
+        softwareEngineerRepository.findById(id)
+                .ifPresentOrElse(
+                        entity -> softwareEngineerRepository.deleteById(id),
+                        () -> {throw new ResponseStatusException(HttpStatus.NOT_FOUND, id + "not found.");}
+                );
+    }
+
+    public void updateSoftwareEngineerById(Integer id, SoftwareEngineerDTO dto) {
+
+        softwareEngineerRepository.findById(id)
+                .ifPresentOrElse(
+                        entity -> {
+                            entity.setName(dto.getName());
+                            entity.setTechStack(dto.getTechStack());
+                            softwareEngineerRepository.save(entity);
+                        },
+                        () -> {throw new ResponseStatusException(HttpStatus.NOT_FOUND, id + "not found.");}
+                );
+    }
 }

@@ -14,6 +14,11 @@ public class SoftwareEngineerController {
         this.softwareEngineerService = softwareEngineerService;
     }
 
+    @PostMapping
+    public void addNewSoftwareEngineer(@RequestBody SoftwareEngineerDTO softwareEngineer) {
+        softwareEngineerService.insertSoftwareEngineer(softwareEngineer);
+    }
+
     @GetMapping
     public List<SoftwareEngineerDTO> getEngineers(){
         return softwareEngineerService.getAllSoftwareEngineers();
@@ -24,9 +29,14 @@ public class SoftwareEngineerController {
         return softwareEngineerService.getSoftwareEngineerById(id);
     }
 
-    @PostMapping
-    public void addNewSoftwareEngineer(@RequestBody SoftwareEngineerDTO softwareEngineer) {
-        softwareEngineerService.insertSoftwareEngineer(softwareEngineer);
+    @DeleteMapping("delete/{id}")
+    public void deleteSoftwareEngineerById(@PathVariable Integer id){
+        softwareEngineerService.deleteSoftwareEngineerById(id);
+    }
+
+    @PutMapping("update/{id}")
+    public void updateSoftwareEngineerById(@PathVariable Integer id, @RequestBody SoftwareEngineerDTO softwareEngineer){
+        softwareEngineerService.updateSoftwareEngineerById(id, softwareEngineer);
     }
 
 }
