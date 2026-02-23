@@ -11,10 +11,10 @@
     </parent>
 
     <groupId>com.gifprojects</groupId>
-    <artifactId>springboot-playground</artifactId>
+    <artifactId>se-learningpath</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-playground</name>
-    <description>springboot-playground</description>
+    <name>se-learningpath</name>
+    <description>se-learningpath</description>
     <url/>
 
     <licenses>
